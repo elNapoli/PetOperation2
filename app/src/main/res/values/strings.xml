@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="name_pet">Name</string>
+    <string name="rating">5</string>
+    <string name="like">Le has dado me gusta a</string>
+    <string name="un_like">Le has quitado me gusta a</string>
+
+</resources>

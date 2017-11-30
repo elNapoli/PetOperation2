@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mb_20">20dp</dimen>
+    <dimen name="rcv_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="bone">30dp</dimen>
+    <dimen name="name_profile">20sp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="elevation">10dp</dimen>
+    <dimen name="title_actionbar">25dp</dimen>
+</resources>
