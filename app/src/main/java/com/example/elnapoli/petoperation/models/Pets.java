@@ -1,5 +1,6 @@
 package com.example.elnapoli.petoperation.models;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Random;
  */
 
 
-public class Pets {
+public class Pets  implements Serializable{
     private String name;
     private int photo;
     private int rating;
