@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Pets> myPets;
     private RecyclerView rvPet;
     PetAdapter miAdapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvPet.setLayoutManager(llm);
         rvPet.setAdapter(miAdapter);
-        Button button = (Button)findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.iFavourite:
                 Intent intent = new Intent(MainActivity.this,FavouritePet.class);
                 Bundle bundle = new Bundle();
                 ArrayList<Pets> requestPet = new ArrayList<Pets>();
@@ -45,17 +54,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     if(myPets.get(i).getIsLike()){
-
+                        count++;
                         requestPet.add(myPets.get(i));
                     }
-                    count++;
 
                 }
                 bundle.putSerializable("myPets",requestPet);
                 intent.putExtras(bundle);
                 startActivity(intent);
-            }
-        });
+        }
+        return super.onOptionsItemSelected(item);
     }
     public void initPets(){
         myPets = new ArrayList<Pets>();
