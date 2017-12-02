@@ -1,4 +1,4 @@
-package com.example.elnapoli.petoperation;
+package com.example.elnapoli.petoperation.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
+import com.example.elnapoli.petoperation.R;
 import com.example.elnapoli.petoperation.adapters.PetAdapter;
 import com.example.elnapoli.petoperation.models.Pets;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -62,6 +60,17 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putSerializable("myPets",requestPet);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                break;
+            case R.id.iContact:
+                Intent intentContact = new Intent(MainActivity.this,ContactActivity.class);
+                startActivity(intentContact);
+                break;
+            case R.id.iAbout:
+                Intent intentAbout = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(intentAbout);
+                break;
+
+
         }
         return super.onOptionsItemSelected(item);
     }

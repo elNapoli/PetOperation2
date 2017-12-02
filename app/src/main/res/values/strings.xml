@@ -5,7 +5,15 @@
     <string name="like">Le has dado me gusta a</string>
     <string name="un_like">Le has quitado me gusta a</string>
     <string name="about">Acerca de</string>
-    <string name="settings">Configuración</string>
+    <string name="contact">Contacto</string>
     <string name="favourite">Favoritos</string>
+    <string name="developer">Desarrollador</string>
+    <string name="name_developer">Baldomero Napoli</string>
+    <string name="skils">Habilidades: PHP, Java, Mysql, AWS, Android, Javascript</string>
+    <string name="gitHubDeveloper">GitHub: https://github.com/elnapoli</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="titleContact">Ingrese datos de contacto</string>
+    <string name="sendEmail">Enviar Email</string>
 
 </resources>

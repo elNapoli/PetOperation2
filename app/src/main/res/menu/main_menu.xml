@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:title="@string/contact"
+        android:id="@+id/iContact"
+        />
     <item android:title="@string/about"
         android:id="@+id/iAbout"
-        />
-    <item android:title="@string/settings"
-        android:id="@+id/iSettings"
         />
     <item
         android:id="@+id/iFavourite"

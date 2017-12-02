@@ -1,4 +1,4 @@
-package com.example.elnapoli.petoperation;
+package com.example.elnapoli.petoperation.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.example.elnapoli.petoperation.R;
 import com.example.elnapoli.petoperation.adapters.PetAdapter;
 import com.example.elnapoli.petoperation.models.Pets;
 
