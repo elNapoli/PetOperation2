@@ -15,5 +15,6 @@
     <string name="email">Correo Electrónico</string>
     <string name="titleContact">Ingrese datos de contacto</string>
     <string name="sendEmail">Enviar Email</string>
+    <string name="content_message">Mensaje</string>
 
 </resources>

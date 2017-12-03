@@ -8,50 +8,67 @@
     android:paddingLeft="@dimen/margin_30"
     android:paddingRight="@dimen/margin_30"
     tools:context="com.example.elnapoli.petoperation.activities.ContactActivity">
-    <android.support.v7.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/title"
-            android:layout_marginBottom="@dimen/margin_30"
-            android:text="@string/titleContact" />
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-            <android.support.design.widget.TextInputEditText
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
-                android:id="@+id/tieName"
                 android:layout_height="wrap_content"
-                android:hint="@string/name" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputEditText
+                android:gravity="center"
+                android:textSize="@dimen/title"
+                android:layout_marginBottom="@dimen/margin_30"
+                android:text="@string/titleContact" />
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/tieEmail"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/tieName"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/name" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/tieEmail"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/tieContent"
+                    android:layout_height="100dp"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/content_message" />
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/btnSendEmail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email" />
-        </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnSendEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sendEmail"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp" />
+                android:text="@string/sendEmail"
+                tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="8dp" />
 
 
-    </android.support.v7.widget.LinearLayoutCompat>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
