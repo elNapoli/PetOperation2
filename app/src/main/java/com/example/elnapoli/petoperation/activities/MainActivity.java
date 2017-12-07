@@ -1,17 +1,25 @@
 package com.example.elnapoli.petoperation.activities;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.elnapoli.petoperation.R;
+import com.example.elnapoli.petoperation.adapters.PageAdapter;
 import com.example.elnapoli.petoperation.adapters.PetAdapter;
+import com.example.elnapoli.petoperation.fragments.MyPetFragment;
+import com.example.elnapoli.petoperation.fragments.PetFragment;
 import com.example.elnapoli.petoperation.models.Pets;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Pets> myPets;
     private RecyclerView rvPet;
     PetAdapter miAdapter;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewpager;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -29,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.toolbar);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewpager = findViewById(R.id.viewPager);
+
+        setUpViewPager();
+        if(toolbar != null){
+            setSupportActionBar(toolbar);
+        }
+/*
         rvPet = (RecyclerView) findViewById(R.id.rvPet);
         initPets();
         miAdapter = new PetAdapter(this,myPets);
@@ -36,8 +58,22 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         rvPet.setLayoutManager(llm);
-        rvPet.setAdapter(miAdapter);
+        rvPet.setAdapter(miAdapter);*/
     }
+
+    private ArrayList<Fragment> addFragment(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new PetFragment());
+        fragments.add(new MyPetFragment());
+        return  fragments;
+
+    }
+
+    private void setUpViewPager(){
+        viewpager.setAdapter(new PageAdapter(getSupportFragmentManager(),addFragment()));
+        tabLayout.setupWithViewPager(viewpager);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
