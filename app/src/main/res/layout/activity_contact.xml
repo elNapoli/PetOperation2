@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/margin_30"
-    android:paddingLeft="@dimen/margin_30"
-    android:paddingRight="@dimen/margin_30"
+    android:orientation="vertical"
     tools:context="com.example.elnapoli.petoperation.activities.ContactActivity">
+    <include layout="@layout/toolbar"></include>
     <ScrollView
         android:layout_width="match_parent"
+        android:paddingTop="@dimen/margin_30"
+        android:paddingLeft="@dimen/margin_30"
+        android:paddingRight="@dimen/margin_30"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -71,4 +74,4 @@
 
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.LinearLayoutCompat>
