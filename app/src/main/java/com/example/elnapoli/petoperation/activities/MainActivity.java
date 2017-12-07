@@ -24,9 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Pets> myPets;
-    private RecyclerView rvPet;
-    PetAdapter miAdapter;
+
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewpager;
@@ -50,15 +48,6 @@ public class MainActivity extends AppCompatActivity {
         if(toolbar != null){
             setSupportActionBar(toolbar);
         }
-/*
-        rvPet = (RecyclerView) findViewById(R.id.rvPet);
-        initPets();
-        miAdapter = new PetAdapter(this,myPets);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvPet.setLayoutManager(llm);
-        rvPet.setAdapter(miAdapter);*/
     }
 
     private ArrayList<Fragment> addFragment(){
@@ -78,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.iFavourite:
-                Intent intent = new Intent(MainActivity.this,FavouritePet.class);
+               /* Intent intent = new Intent(MainActivity.this,FavouritePet.class);
                 Bundle bundle = new Bundle();
                 ArrayList<Pets> requestPet = new ArrayList<Pets>();
                 int count = 0;
@@ -95,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 bundle.putSerializable("myPets",requestPet);
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivity(intent);*/
                 break;
             case R.id.iContact:
                 Intent intentContact = new Intent(MainActivity.this,ContactActivity.class);
@@ -110,14 +99,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void initPets(){
-        myPets = new ArrayList<Pets>();
-        myPets.add(new Pets("Burbuja",R.drawable.elefante));
-        myPets.add(new Pets("Perry",R.drawable.jirafa));
-        myPets.add(new Pets("Osoman",R.drawable.leon));
-        myPets.add(new Pets("Mano Larga",R.drawable.mono));
-        myPets.add(new Pets("Diego",R.drawable.tigre));
-        myPets.add(new Pets("Lobo",R.drawable.dray3115_edit_3_200x200));
 
-    }
 }
