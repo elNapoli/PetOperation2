@@ -1,6 +1,7 @@
 package com.example.elnapoli.petoperation.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -13,6 +14,7 @@ public class Pets  implements Serializable{
     private int photo;
     private int rating;
     private boolean isLike;
+    private ArrayList<Photos> myPhotos;
 
 
 
@@ -55,5 +57,13 @@ public class Pets  implements Serializable{
 
     public void setPhoto(int photo) {
         this.photo = photo;
+    }
+
+    public ArrayList<Photos> getMyPhotos() {
+        return myPhotos;
+    }
+
+    public void setMyPhotos(ArrayList<Photos> myPhotos) {
+        this.myPhotos = myPhotos;
     }
 }
