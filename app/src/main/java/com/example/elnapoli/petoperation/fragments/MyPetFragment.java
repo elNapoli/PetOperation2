@@ -9,12 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.elnapoli.petoperation.R;
 import com.example.elnapoli.petoperation.adapters.PetAdapter;
 import com.example.elnapoli.petoperation.adapters.PhotosProfileAdapter;
 import com.example.elnapoli.petoperation.models.Pets;
 import com.example.elnapoli.petoperation.models.Photos;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 
@@ -37,9 +39,13 @@ public class MyPetFragment extends Fragment {
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_pet, container, false);
-
-        rvFavouritePetPersonal = (RecyclerView) view.findViewById(R.id.rvFavouritePetPersonal);
+        TextView tvNameProfile = (TextView) view.findViewById(R.id.tvNameProfile);
+        CircularImageView civProfile = (CircularImageView) view.findViewById(R.id.civProfile) ;
         initPet();
+
+        tvNameProfile.setText(myPet.getName());
+        civProfile.setImageResource(myPet.getPhoto());
+        rvFavouritePetPersonal = (RecyclerView) view.findViewById(R.id.rvFavouritePetPersonal);
         miAdapter = new PhotosProfileAdapter(view.getContext(),myPet.getMyPhotos());
 
         LinearLayoutManager llm = new LinearLayoutManager(view.getContext());

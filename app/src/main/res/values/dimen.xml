@@ -11,4 +11,5 @@
     <dimen name="margin_30">30dp</dimen>
     <dimen name="title">30dp</dimen>
     <dimen name="name_developer">20dp</dimen>
+    <dimen name="profile_size">150dp</dimen>
 </resources>

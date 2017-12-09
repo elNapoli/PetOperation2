@@ -2,13 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.elnapoli.petoperation.fragments.MyPetFragment">
-
-    <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rvFavouritePetPersonal">
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="@dimen/profile_size"
+            android:layout_height="@dimen/profile_size"
+            android:id="@+id/civProfile"
+            android:src="@drawable/elefante"
+            app:civ_border_color="#EEEEEE"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            android:layout_gravity="center_vertical|center_horizontal"
+            app:civ_shadow_radius="10"
+            app:civ_shadow_color="#8BC34A"/>
+
+        <TextView
+            android:id="@+id/tvNameProfile"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvFavouritePetPersonal">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
 </FrameLayout>
