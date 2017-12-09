@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     private void setUpViewPager(){
         viewpager.setAdapter(new PageAdapter(getSupportFragmentManager(),addFragment()));
         tabLayout.setupWithViewPager(viewpager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_profile_dog);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_dog_my_profile);
     }
 
     @Override
