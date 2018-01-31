@@ -12,17 +12,19 @@ import android.view.ViewGroup;
 import com.example.elnapoli.petoperation.R;
 import com.example.elnapoli.petoperation.adapters.PetAdapter;
 import com.example.elnapoli.petoperation.models.Pets;
+import com.example.elnapoli.petoperation.presentador.IRecyclerViewFragmentPresenter;
+import com.example.elnapoli.petoperation.presentador.RecyclerViewFragmentsPresenter;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PetFragment extends Fragment {
+public class PetFragment extends Fragment implements IRecyclerViewFragmentView {
 
     ArrayList<Pets> myPets;
     private RecyclerView rvPet;
-    PetAdapter miAdapter;
+    private IRecyclerViewFragmentPresenter presenter;
     public PetFragment() {
         // Required empty public constructor
     }
@@ -33,15 +35,8 @@ public class PetFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pet, container, false);
-
         rvPet = (RecyclerView) view.findViewById(R.id.rvPet);
-        initPets();
-        miAdapter = new PetAdapter(view.getContext(),myPets);
-
-        LinearLayoutManager llm = new LinearLayoutManager(view.getContext());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvPet.setLayoutManager(llm);
-        rvPet.setAdapter(miAdapter);
+        presenter = new RecyclerViewFragmentsPresenter(this,getContext());
         return view;
     }
 
@@ -56,4 +51,21 @@ public class PetFragment extends Fragment {
 
     }
 
+    @Override
+    public void generateLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rvPet.setLayoutManager(llm);
+    }
+
+    @Override
+    public PetAdapter createPetAdapter(ArrayList<Pets> pets) {
+        PetAdapter miAdapter = new PetAdapter(getContext(),pets);
+        return miAdapter;
+    }
+
+    @Override
+    public void initAdapterRV(PetAdapter adapter) {
+        rvPet.setAdapter(adapter);
+    }
 }
