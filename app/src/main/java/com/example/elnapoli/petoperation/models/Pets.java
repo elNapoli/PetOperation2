@@ -12,12 +12,15 @@ import java.util.Random;
 public class Pets  implements Serializable{
     private String name;
     private int photo;
+    private int id;
     private int rating;
     private boolean isLike;
     private ArrayList<Photos> myPhotos;
 
 
+    public  Pets(){
 
+    }
     public Pets(String name, int photo){
         this.name = name;
         this.photo = photo;
@@ -65,5 +68,13 @@ public class Pets  implements Serializable{
 
     public void setMyPhotos(ArrayList<Photos> myPhotos) {
         this.myPhotos = myPhotos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
