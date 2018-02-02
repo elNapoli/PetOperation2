@@ -2,6 +2,7 @@ package com.example.elnapoli.petoperation.dataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Base64DataException;
 
 import com.example.elnapoli.petoperation.R;
 import com.example.elnapoli.petoperation.models.Pets;
@@ -34,9 +35,55 @@ public class BuilderPets {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Burbuja");
         contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.elefante);
-        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,0);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,50);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
+        db.insertPet(contentValues);
+
+
+        contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Perry");
+        contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.jirafa);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,4);
         contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
 
         db.insertPet(contentValues);
+
+        contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Osoman");
+        contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.leon);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,4);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
+
+        db.insertPet(contentValues);
+
+        contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Mano Larga");
+        contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.mono);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,100);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
+        db.insertPet(contentValues);
+
+
+        contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Diego");
+        contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.tigre);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,34);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
+        db.insertPet(contentValues);
+
+        contentValues.put(ConstantsDataBase.TABLE_PETS_NAME,"Lobo");
+        contentValues.put(ConstantsDataBase.TABLE_PETS_PHOTO,R.drawable.dray3115_edit_3_200x200);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING,3);
+        contentValues.put(ConstantsDataBase.TABLE_PETS_IS_LIKE,0);
+
+        db.insertPet(contentValues);
+
+    }
+
+    public void setLikePet(Pets pet){
+        DataBase db = new DataBase(context);
+        db.updateLikePet(pet);
+    }
+
+    public int getLikePet(Pets pet){
+        DataBase db = new DataBase(context);
+        return  db.getLikePet(pet);
+
     }
 }

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.elnapoli.petoperation.models.Pets;
 
@@ -77,5 +78,31 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(ConstantsDataBase.TABLE_PETS,null,contentValues);
         db.close();
+    }
+
+
+    public void updateLikePet(Pets pet){
+        ContentValues  contentValues = new ContentValues();
+        contentValues.put(ConstantsDataBase.TABLE_PETS_RATING, pet.getRating());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update(ConstantsDataBase.TABLE_PETS,contentValues,ConstantsDataBase.TABLE_PETS_ID+" = "+ pet.getId(),null);
+        db.close();
+
+    }
+
+    public int getLikePet(Pets pet){
+        int likes = 0;
+        String query = "SELECT "+ConstantsDataBase.TABLE_PETS_RATING+" FROM "+ ConstantsDataBase.TABLE_PETS+
+                " where "+ ConstantsDataBase.TABLE_PETS_ID+" = "+ pet.getId();
+
+        SQLiteDatabase db =  this.getWritableDatabase();
+
+        Cursor registros = db.rawQuery(query,null);
+        if (registros.moveToNext()){
+            likes = registros.getInt(0);
+
+        }
+        db.close();
+        return likes;
     }
 }

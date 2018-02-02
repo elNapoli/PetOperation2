@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.elnapoli.petoperation.R;
+import com.example.elnapoli.petoperation.dataBase.BuilderPets;
 import com.example.elnapoli.petoperation.models.Pets;
 
 import java.util.ArrayList;
@@ -43,20 +44,23 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         petViewHolder.ivBoneOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                BuilderPets builderPets = new BuilderPets(mContext);
                 if(mascota.getIsLike()){
                     mascota.setRating(mascota.getRating()-1);
                     petViewHolder.ivBoneOn.setImageResource(R.drawable.animals_dog_bone_icon);
                     Toast.makeText(mContext, v.getResources().getString(R.string.un_like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
-                    petViewHolder.tvRating.setText(String.valueOf( mascota.getRating()));
                     mascota.setIsLike(false);
+
                 }
                 else{
                     mascota.setRating(mascota.getRating()+1);
                     petViewHolder.ivBoneOn.setImageResource(R.drawable.bone_dog);
                     Toast.makeText(mContext, v.getResources().getString(R.string.like)+" "+ mascota.getName(), Toast.LENGTH_SHORT).show();
-                    petViewHolder.tvRating.setText(String.valueOf( mascota.getRating()));
                     mascota.setIsLike(true);
                 }
+
+                builderPets.setLikePet(mascota);
+                petViewHolder.tvRating.setText(String.valueOf(builderPets.getLikePet(mascota)));
 
 
             }
